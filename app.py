@@ -116,7 +116,7 @@ def followers_enriched():
         page_size = int(request.args.get("page_size", 200))
         min_followers = int(request.args.get("min_followers", 10000))
         cursor = request.args.get("cursor")
-        workers = max(1, min(int(request.args.get("workers", 5)), 8))
+        workers = max(1, min(int(request.args.get("workers", 5)), 4))  # cap to 4
         include_debug = request.args.get("debug") == "1"
 
         # 1) Resolve user id if only username given
